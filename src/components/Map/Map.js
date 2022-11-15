@@ -1,44 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
+
 // import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
+
+// CSS import
+import "./Map.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGhlYWx5ODMiLCJhIjoiY2xhaGQ3OWgxMDJydDN2cXJvdGVtcHZkZyJ9.IjCqX9Sm8gpEYjHzPLe8ng";
 
-var map = new mapboxgl.Map({
+const Map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/streets-v11",
+  center: [-104.9846, 39.73917], // starting position [lng, lat]
+  zoom: 9, // starting zoom
 });
 
-class Mapp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lng: -10,
-      lat: 80,
-      zoom: 4,
-    };
-  }
+// const Mapp = (Component) => {
+//   constructor(props);
+//   {
+//     super(props);
+//     this.state = {
+//       lng: 10,
+//       lat: 80,
+//       zoom: 4,
+//     };
+//   }
+// };
 
-  componentDidMount() {
-    const Map = new mapboxgl.Map({
-      container: "this.mapContainer",
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <div
-          ref={(el) => (this.mapContainer = el)}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-    );
-  }
-}
-
-export default Mapp;
+export default Map;
