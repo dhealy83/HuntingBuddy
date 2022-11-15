@@ -5,11 +5,16 @@ import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGhlYWx5ODMiLCJhIjoiY2xhaGQ3OWgxMDJydDN2cXJvdGVtcHZkZyJ9.IjCqX9Sm8gpEYjHzPLe8ng";
 
-class Mapp extends React.Component {
+var map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v11",
+});
+
+class Mapp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lng: 10,
+      lng: -10,
       lat: 80,
       zoom: 4,
     };
@@ -29,7 +34,7 @@ class Mapp extends React.Component {
       <div>
         <div
           ref={(el) => (this.mapContainer = el)}
-          style={{ width: "100%", height: "100vh" }}
+          style={{ width: "100%", height: "100%" }}
         />
       </div>
     );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-const Nav = () => {
+const Nav = ({ name, ...props }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -11,12 +11,12 @@ const Nav = () => {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch
+        Hunting Buddy
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>Hunting Buddy</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           Some text as placeholder. In real life you can have the elements you
@@ -26,4 +26,5 @@ const Nav = () => {
     </>
   );
 };
+
 export default Nav;
