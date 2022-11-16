@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 // Components
 import Nav from "./components/Nav/Nav";
 import Map from "./components/Map/Map";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
       <Routes>
         <Route path="/Map" element={<Map />} />
       </Routes>
+
+      <Footer fixed="bottom" />
     </>
   );
 };
