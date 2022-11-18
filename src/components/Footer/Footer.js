@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -5,10 +7,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import Modal from "react-bootstrap/Modal";
 
-import "./Footer.scss";
+import "./Footer.css";
 
 function Footer() {
+  // Handles the actions in the dropdown menu to load modal.
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       {["lg"].map((expand) => (
@@ -19,7 +28,7 @@ function Footer() {
           fixed="bottom"
           className="navbar mb-0"
         >
-          <Container className="">
+          <Container fluid className="">
             <Navbar.Brand href="#" className="brand p-4 fs-1">
               Layers and Tools
             </Navbar.Brand>
@@ -42,6 +51,7 @@ function Footer() {
                   <NavDropdown
                     title="Pin Points"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
+                    drop="up"
                   >
                     <NavDropdown.Item href="#action3">Access</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">Deer</NavDropdown.Item>
@@ -50,9 +60,26 @@ function Footer() {
                       Downed Animals
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action6">
+                    <NavDropdown.Item onClick={handleShow} drop="up">
                       Drop New Pin
                     </NavDropdown.Item>
+
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        Woohoo, you're reading this text in a modal!
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                          Save Changes
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
                   </NavDropdown>
                 </Nav>
                 <Form className="d-flex">
