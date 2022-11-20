@@ -6,6 +6,7 @@ import Figure from "react-bootstrap/Figure";
 
 // Imported Profile image
 import mockProfileImage from "./Assets/mockProfileImage.jpg";
+import hb from "./Assets/hb.png";
 
 const Nav = ({ name, ...props }) => {
   const [show, setShow] = useState(false);
@@ -15,8 +16,17 @@ const Nav = ({ name, ...props }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Hunting Buddy
+      <Button
+        className="navbar-toggler m-3"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        onClick={handleShow}
+      >
+        <img src={hb} alt="David Healy, DH logo." width="30" height="30" />
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
