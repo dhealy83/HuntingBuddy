@@ -7,17 +7,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import Modal from "react-bootstrap/Modal";
 
 import "./Footer.css";
 
 function Footer() {
-  // Handles the actions in the dropdown menu to load modal.
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   return (
     <>
       {["lg"].map((expand) => (
@@ -60,33 +53,13 @@ function Footer() {
                       Downed Animals
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={handleShow} drop="up">
-                      Drop New Pin
-                    </NavDropdown.Item>
-
-                    <Modal show={show} onHide={handleClose}>
-                      <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        Woohoo, you're reading this text in a modal!
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                          Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                          Save Changes
-                        </Button>
-                      </Modal.Footer>
-                    </Modal>
-                  </NavDropdown>
+                  </NavDropdown>{" "}
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
                     type="search"
                     placeholder="Search"
-                    className="me-2"
+                    className="m-2 large"
                     aria-label="Search"
                   />
                   <Button variant="outline-success">Search</Button>
