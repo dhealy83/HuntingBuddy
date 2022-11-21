@@ -10,6 +10,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 import "./Footer.css";
 
+import DropNewPin from "../Nav/DropPinButton/DropPinButton";
+
 function Footer() {
   return (
     <>
